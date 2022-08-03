@@ -1,15 +1,15 @@
 
 ---
-- name: Get list of dns, email notification, ntp, remote support, remote support contact and smtp config
-  dellemc.powerstore.info:
-    array_ip: "{{array_ip}}"
-    verifycert: "{{verifycert}}"
-    user: "{{user}}"
-    password: "{{password}}"
-    gather_subset:
-      - dns
-      - email_notification
-      - ntp
-      - remote_support
-      - remote_support_contact
-      - smtp_config
+   - name: Get list of dns, email notification, ntp, remote support, remote support contact and smtp config
+     dellemc.powerstore.info:
+       array_ip: "{{array_ip}}"
+       verifycert: "{{verifycert}}"
+       user: "{{user}}"
+       password: "{{password}}"
+       gather_subset:
+         - dns
+         - email_notification
+         - ntp
+         - remote_support
+         - remote_support_contact
+         - smtp_config
