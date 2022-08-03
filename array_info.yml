@@ -6,7 +6,6 @@
   verifycert: "{{verifycert}}"
   user: "{{user}}"
   password: "{{password}}"
-  cluster_id: "0"
   state: "present"
   register: results
   collections:
