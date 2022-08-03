@@ -2,7 +2,7 @@
 - name: Volumes which have capacity more than the threshold
   hosts: localhost
   connection: local
-  array_ip: "{{array_ip}}"
+    array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
     password: "{{password}}"
