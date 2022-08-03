@@ -1,0 +1,23 @@
+---
+- name: Volumes which have capacity more than the threshold
+  hosts: localhost
+  connection: local
+  vars:
+    array_ip: "10.118.0.120"
+    user: "admin"
+    password: "Password1234#"
+    verifycert: "False"
+    threshold_size: enter_cap(in Bytes)
+  collections:
+  - dellemc.powerstore
+  tasks:
+    - name: Create stand-alone volume
+      dellemc.powerstore.volume:
+        array_ip: "{{array_ip}}"
+        verifycert: "{{verifycert}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        vol_name: "Ansible_Volume"
+        size: 1
+        cap_unit: "GB"
+        state: 'absent'
