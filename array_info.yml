@@ -2,12 +2,12 @@
 - name: Volumes which have capacity more than the threshold
   hosts: localhost
   connection: local
-    array_ip: "{{array_ip}}"
-    verifycert: "{{verifycert}}"
-    user: "{{user}}"
-    password: "{{password}}"
-    cluster_id: "0"
-    state: "present"
+  array_ip: "{{array_ip}}"
+  verifycert: "{{verifycert}}"
+  user: "{{user}}"
+  password: "{{password}}"
+  cluster_id: "0"
+  state: "present"
   register: results
   collections:
   - dellemc.powerstore
