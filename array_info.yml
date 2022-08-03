@@ -1,20 +1,15 @@
 
 ---
-- name: Volumes which have capacity more than the threshold
-  hosts: localhost
-  connection: local
-  array_ip: "{{array_ip}}"
-  verifycert: "{{verifycert}}"
-  user: "{{user}}"
-  password: "{{password}}"
-  state: "present"
-  register: results
-  collections:
-  - dellemc.powerstore
-  tasks:
-    - name: Get the details of the array
-      info:
-        array_ip: "{{array_ip}}"
-        user: "{{user}}"
-        password: "{{password}}"
-        verifycert: "{{verifycert}}"
+- name: Get list of dns, email notification, ntp, remote support, remote support contact and smtp config
+  dellemc.powerstore.info:
+    array_ip: "{{array_ip}}"
+    verifycert: "{{verifycert}}"
+    user: "{{user}}"
+    password: "{{password}}"
+    gather_subset:
+      - dns
+      - email_notification
+      - ntp
+      - remote_support
+      - remote_support_contact
+      - smtp_config
