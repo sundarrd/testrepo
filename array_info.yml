@@ -1,0 +1,20 @@
+
+---
+- name: Volumes which have capacity more than the threshold
+  hosts: localhost
+  connection: local
+  array_ip: "{{array_ip}}"
+  verifycert: "{{verifycert}}"
+  user: "{{user}}"
+  password: "{{password}}"
+  state: "present"
+  register: results
+  collections:
+  - dellemc.powerstore
+  tasks:
+    - name: Get the details of the array
+      info:
+        array_ip: "{{array_ip}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        verifycert: "{{verifycert}}"
