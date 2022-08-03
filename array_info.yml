@@ -1,0 +1,13 @@
+---
+   - name: Get the details of cluster using id
+     dellemc.powerstore.cluster:
+       array_ip: "{{array_ip}}"
+       verifycert: "{{verifycert}}"
+       user: "{{user}}"
+       password: "{{password}}"
+       cluster_id: "0"
+       state: "present"
+     register: results
+   - name: Print the details of cluster
+     debug:
+       var: results
