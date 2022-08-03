@@ -11,7 +11,7 @@
   collections:
   - dellemc.powerstore
   tasks:
-    - name: Create stand-alone volume
+    - name: Delete stand-alone volume
       dellemc.powerstore.volume:
         array_ip: "{{array_ip}}"
         verifycert: "{{verifycert}}"
