@@ -13,11 +13,11 @@
   tasks:
     - name: Create stand-alone volume
       dellemc.powerstore.volume:
-      array_ip: "{{array_ip}}"
-      verifycert: "{{verifycert}}"
-      user: "{{user}}"
-      password: "{{password}}"
-      vol_name: "Ansible_Volume"
-      size: 1
-      cap_unit: "GB"
-      state: 'present'
+        array_ip: "{{array_ip}}"
+        verifycert: "{{verifycert}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        vol_name: "Ansible_Volume"
+        size: 1
+        cap_unit: "GB"
+        state: 'present'
