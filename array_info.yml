@@ -1,13 +1,20 @@
 ---
-- name: Get the details of cluster using id
-  dellemc.powerstore.cluster:
-    array_ip: "{{array_ip}}"
+- name: Volumes which have capacity more than the threshold
+  hosts: localhost
+  connection: local
+  array_ip: "{{array_ip}}"
     verifycert: "{{verifycert}}"
     user: "{{user}}"
     password: "{{password}}"
     cluster_id: "0"
     state: "present"
   register: results
-- name: Print the details of cluster
-  debug:
-    var: results
+  collections:
+  - dellemc.powerstore
+  tasks:
+    - name: Get the details of the array
+      info:
+        array_ip: "{{array_ip}}"
+        user: "{{user}}"
+        password: "{{password}}"
+        verifycert: "{{verifycert}}"
