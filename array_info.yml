@@ -3,10 +3,10 @@
   hosts: localhost
   connection: local
   vars:
-    array_ip: "{{array_ip}}"
-    user: "{{user}}"
-    password: "{{password}}"
-    verifycert: "{{verifycert}}"
+    array_ip: "10.118.0.120"
+    user: "admin"
+    password: "Password1234#"
+    verifycert: "False"
     threshold_size: enter_cap(in Bytes)
   collections:
   - dellemc.powerstore
