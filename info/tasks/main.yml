@@ -1,7 +1,9 @@
 ---
    - name: Get the details of cluster 
+      hosts: localhost
+      connection: local
      dellemc.powerstore.cluster:
-       array_ip: "{{array_ip}}"
+       array_ip: "{{inventory_hostname}"
        verifycert: false
        user: "{{user}}"
        password: "{{password}}"
