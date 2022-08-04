@@ -3,7 +3,7 @@
       #hosts: localhost
       #connection: local
      dellemc.powerstore.cluster:
-       array_ip: "{{inventory_hostname}"
+       array_ip: "{{array_ip}"
        verifycert: false
        user: "{{user}}"
        password: "{{password}}"
