@@ -1,5 +1,5 @@
 ---
-   - name: Get the details of cluster using id
+   - name: Get the details of cluster 
      dellemc.powerstore.cluster:
        array_ip: "{{array_ip}}"
        verifycert: "{{verifycert}}"
