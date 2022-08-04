@@ -1,6 +1,6 @@
 ---
-  collections:
-   - dellemc.powerstore
+   collections:
+    - dellemc.powerstore
    - name: Get the details of cluster 
      dellemc.powerstore.cluster:
        array_ip: "{{array_ip}}"
