@@ -2,5 +2,7 @@
 - hosts: powerstore
   connection: local
   gather_facts: no
+  collections:
+  - dellemc.powerstore
   roles:
    - info
