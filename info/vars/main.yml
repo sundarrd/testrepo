@@ -1,0 +1,7 @@
+---
+# vars file for info
+user: admin
+password: Password1234#
+verifycert: false
+#array_ip: 10.118.0.120
+array_ip: "{{ inventory_hostname}}"
