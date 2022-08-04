@@ -1,6 +1,6 @@
 ---
 - name: Volumes which have capacity more than the threshold
-  hosts: localhost
+  hosts: {{inventory_hostname}}
   connection: local
   vars:
     array_ip: "{{array_ip}}"
