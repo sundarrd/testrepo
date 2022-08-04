@@ -2,7 +2,7 @@
    - name: Get the details of cluster 
      dellemc.powerstore.cluster:
        array_ip: "{{array_ip}}"
-       verifycert: "{{verifycert}}"
+       verifycert: false
        user: "{{user}}"
        password: "{{password}}"
        cluster_id: "0"
