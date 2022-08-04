@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   vars:
-    array_ip: "{{array_ip}}"
+    array_ip: "{{inventory_hostname}}"
     user: "{{user}}"
     password: "{{password}}"
     verifycert:  "{{verifycert}}"
@@ -13,7 +13,7 @@
   tasks:
     - name: Get the details of the array
       info:
-        array_ip: "{{array_ip}}"
+        array_ip: "{{inventory_hostname}}"
         user: "{{user}}"
         password: "{{password}}"
         verifycert: "{{verifycert}}"
