@@ -15,16 +15,19 @@
           msg: "{{ result.dell_emc_token,result.json[0].id}}"
     - name: Info of the cluster
       uri:
-        method: GET
-        url: https://{{inventory_hostname}}/api/rest/appliance/{{result.json[0].id}}?select=id,name,service_tag,express_service_code,model,node_count,drive_failure_tolerance_level,drive_failure_tolerance_level_l10n,nodes,ip_pool_addresses,volumes
+        method: POST
+        body: "{ \"name\": \"{{ name }}\",\"size\": {{ size }} }"
+        body_format: json
+        http_agent: Ansible
+        url: https://{{inventory_hostname}}/api/rest/volume
         validate_certs: no
         follow_redirects: yes
         return_content: yes
-        status_code: 200
+        status_code: 201
         headers:
           cookie: "{{ result.cookies|dictsort(false)|map('join', '=')|join('; ') }}"
           dell-emc-token: "{{ result.dell_emc_token}}"
-      register: appliance
+      register: volume
     - name: DEBUG / GOT INFO
       debug:
-          msg: "{{lookup('ansible.utils.to_paths',appliance.json)}}"
+          msg: "{{lookup('ansible.utils.to_paths',volume.json)}}"
