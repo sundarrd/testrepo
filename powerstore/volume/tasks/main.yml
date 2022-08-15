@@ -1,0 +1,33 @@
+---
+# tasks file for auth
+    - name: Authenticate & retrieve cookie
+      uri:
+        method: GET
+        headers:
+        user: "{{ user }}"
+        password: "{{ password }}"
+        force_basic_auth: yes
+        url: https://{{inventory_hostname}}/api/rest/appliance
+        validate_certs: no
+      register: result
+    - name: DEBUG / GOT Login INFO
+      debug:
+          msg: "{{ result.dell_emc_token,result.json[0].id}}"
+    - name: Info of the cluster
+      uri:
+        method: POST
+        body: "{ \"name\": \"{{ name }}\",\"size\": {{ size }} }"
+        body_format: json
+        http_agent: Ansible
+        url: https://{{inventory_hostname}}/api/rest/volume
+        validate_certs: no
+        follow_redirects: yes
+        return_content: yes
+        status_code: 201
+        headers:
+          cookie: "{{ result.cookies|dictsort(false)|map('join', '=')|join('; ') }}"
+          dell-emc-token: "{{ result.dell_emc_token}}"
+      register: volume
+    - name: DEBUG / GOT INFO
+      debug:
+          msg: "{{lookup('ansible.utils.to_paths',volume.json)}}"
