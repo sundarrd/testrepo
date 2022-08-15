@@ -27,4 +27,4 @@
       register: appliance
     - name: DEBUG / GOT INFO
       debug:
-          msg: "{{lookup('ansible.utils.to_paths',appliance.json)}}"
+          msg: "{{appliance.json}}"
