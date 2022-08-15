@@ -1,0 +1,5 @@
+# get info about the appliance
+- hosts: powerstore
+  gather_facts: no
+  roles:
+   - auth
