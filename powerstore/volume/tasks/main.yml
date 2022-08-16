@@ -16,7 +16,7 @@
     - name: Info of the cluster
       uri:
         method: POST
-        body: "{ \"name\": \"{{ name }}\",\"size\": {{ size }} }"
+        body: "{ \"name\": \"{{ vol_name }}\",\"size\": {{ size }} }"
         body_format: json
         http_agent: Ansible
         url: https://{{inventory_hostname}}/api/rest/volume
@@ -30,4 +30,4 @@
       register: volume
     - name: DEBUG / GOT INFO
       debug:
-          msg: "{{lookup('ansible.utils.to_paths',volume.json)}}"
+          msg: "{{volume.json)}}"
