@@ -30,4 +30,4 @@
       register: volume
     - name: DEBUG / GOT INFO
       debug:
-          msg: "{{volume.json)}}"
+          msg: "{{volume.json}}"
