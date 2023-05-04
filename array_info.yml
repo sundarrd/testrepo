@@ -3,9 +3,9 @@
   hosts: localhost
   connection: local
   vars:
-    array_ip: "10.118.0.120"
+    array_ip: "10.120.16.20"
     user: "admin"
-    password: "Password1234#"
+    password: "P@ssw0rd1234#"
     verifycert: "False"
     threshold_size: enter_cap(in Bytes)
   collections:
